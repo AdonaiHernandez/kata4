@@ -11,7 +11,9 @@ public class Main {
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/resources/kata4.db")){
             DataBaseRegisterLoader loader = new DataBaseRegisterLoader(connection);
             List<Register> registers = loader.loadAll();
-            System.out.println(registers);
+            DataBaseRegisterProcessor processor = new DataBaseRegisterProcessor();
+            Map<String, Integer> medalsByCountryIn2008 = processor.process(registers);
+            System.out.println(medalsByCountryIn2008);
         }
     }
 }

@@ -37,7 +37,13 @@ public class DataBaseRegisterLoader implements RegisterLoader{
     }
 
     private Register RegisterFrom(ResultSet resultSet) throws SQLException{
-        return new Register(resultSet.getString("Country"), resultSet.getInt("Medals"));
+        return new Register(
+                resultSet.getInt("Rank"),
+                resultSet.getString("Country"),
+                resultSet.getInt("Golds"),
+                resultSet.getInt("Silvers"),
+                resultSet.getInt("Bronzes"),
+                resultSet.getInt("Medals"));
 
     }
 
